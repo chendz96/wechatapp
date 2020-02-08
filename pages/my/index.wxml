@@ -1,2 +1,30 @@
-<!--pages/my/index.wxml-->
-<text>pages/my/index.wxml</text>
+<view class="page">
+  <view style='margin:1rpx auto;text-align:center'>
+    <open-data class="open-data-userAvatarUrl" type="userAvatarUrl"></open-data>    
+  </view>
+  <view style='margin:10rpx auto;text-align:center;display:flex;justify-content: center;'>
+    <open-data class="open-data-userNickName line1" type="userNickName" lang="zh_CN"></open-data>
+  </view>
+  <view style='display:{{isshowbutton}}'>
+    <i-button bind:click="navtologin" type="success" shape="circle" size="small">点击登录</i-button>
+  </view> 
+
+  <view class='order-shortcut' style='margin-top:100rpx;border-top: 1rpx solid white;'>     
+      <view class='item'>
+      </view>    
+      <view class='item' bindtap='goOrder' data-type="0">
+          <image class="icon" src="/images/order/shouhuo.png" background-size="cover"></image>
+          <view class='text'>我的预约</view>
+      </view>
+      <view class='item'>
+      </view>
+      <view class='item' bindtap='goOrder' data-type="1">
+        <image class="icon" src="/images/order/pj.png" background-size="cover"></image>
+        <view class='text'>已完成的服务</view>
+      </view>    
+  </view>  
+
+</view>
+
+<i-toast id="toast" />
+

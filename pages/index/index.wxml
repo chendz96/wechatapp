@@ -34,24 +34,26 @@
           </view>          
           <view >{{ item.businesscontent }}</view>
         </view>  
+
+        <block wx:for="{{ item.linkphone }}" wx:for-item="phone">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" bindtap='callPhone' data-tel="{{phone}}">
+              <view class="weui-cell__hd">
+                <image src="/images/icon/tel.png"></image>
+              </view>
+              <view class="weui-cell__bd">联系电话</view>
+              <view class="weui-cell__ft"  >{{ phone}}</view>
+            </view>  
+          </view>
+        </block>
       </view>
     </block> 
-    <block wx:for="{{shopsub_phone_list}}">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell" bindtap='callPhone' data-tel="{{item}}">
-          <view class="weui-cell__hd">
-            <image src="/images/icon/tel.png"></image>
-          </view>
-          <view class="weui-cell__bd">联系电话</view>
-          <view class="weui-cell__ft"  >{{ item}}</view>
-        </view>  
-      </view>
-    </block>
+    <!--<button type="primary" open-type="contact" bindcontact="handleContact">联系我们</button>-->
     
-    <view>
+    <!--<view>
       <view class="weui-cells__title">视频展示</view>      
         <video  src="{{videosrc}}">
         </video>         
-    </view>
+    </view>-->
   </view>  
 </view>

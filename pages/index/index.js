@@ -2,29 +2,35 @@
 //获取应用实例
 const app = getApp()
 const WXAPI = require('../../api/common')
+const CONFIG = require('../../api/config.js')
 var that = this
 Page({
   data: {
     swiperCurrent: 0, //当前banner所在位置
     bannerList: [],
     shopSubList: [],
-    shopsub_phone_list:[],
-    videosrc:""
+    shopsub_phone_list:[]  
+    
   },
   
   onShow() {
+
+    
     const _this = this
-    WXAPI.banners().then(res=>{
-      _this.setData({
-        bannerList: res,
-      })
+    WXAPI.banners(CONFIG.login_key).then(res=>{
+      if (res.code === 0) {       
+
+        _this.setData({
+          bannerList: res.data,
+        })
+      } 
       console.log(res)
     })
-    WXAPI.shopSubList().then(res => {      
+    WXAPI.shopSubList(CONFIG.login_key).then(res => {      
         _this.setData({
-          shopSubList: res
+          shopSubList: res.data
         })
-      console.log(res)
+      console.log(res,'SHOPLST')
     })
     WXAPI.shopsub_phone_list().then(res => {
       _this.setData({
@@ -83,6 +89,7 @@ Page({
     const item = this.data.shopSubList.find(ele => {
       return ele.id == id
     })
+    console.log(e,'EEEEEEE');
     console.log(item.latitude, item.longitude);
     //parseFloat(item.latitude)
     //parseFloat(item.longitude)
@@ -94,7 +101,9 @@ Page({
     })
   },
 
-  callPhone(e) {
+  callPhone(e) {   
+
+    console.log(e)
     const tel = e.currentTarget.dataset.tel
     wx.makePhoneCall({
       phoneNumber: tel

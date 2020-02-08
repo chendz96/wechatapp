@@ -1,1 +1,44 @@
-/* pages/my/index.wxss */
+
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+ 
+.line1{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis; 
+}
+ 
+.open-data-userAvatarUrl {
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #f6f0e3;
+  margin: 0rpx auto;
+}
+.open-data-userNickName{
+  max-width: 105rpx;
+  display:block;
+}
+.order-shortcut {
+  display: flex;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.order-shortcut .item {
+  display: flex;
+  flex-direction: column;
+  width: 150rpx;
+  text-align: center;
+}
+.order-shortcut .item .icon {
+  width: 67rpx;
+  height: 67rpx;
+  margin-left: 45rpx;
+}
+.order-shortcut .item .text {
+  font-size: 12px;
+}
