@@ -1,5 +1,6 @@
 //app.js
 App({
+  navigateToLogin: false,
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -32,8 +33,38 @@ App({
         }
       }
     })
+    /**
+    * 初次加载判断网络情况
+    * 无网络状态下根据实际情况进行调整
+    */
+    wx.getNetworkType({
+      success(res) {
+        console.log(res,"getNetworkType")
+        const networkType = res.networkType
+        if (networkType === 'none') {
+          that.globalData.isConnected = false
+          wx.showToast({
+            title: '当前无网络',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+      }
+    });
   },
   globalData: {
     userInfo: null
+  },
+  goLoginPageTimeOut: function () {       
+    wx.removeStorageSync('token')    
+    setTimeout(function () {
+      wx.navigateTo({
+        url: "/pages/authorize/index"
+      })
+    }, 500)
+  },
+  globalData: {
+    isConnected: true,
+    launchOption: undefined
   }
 })

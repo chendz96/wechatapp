@@ -56,5 +56,23 @@ module.exports = {
   },
   shop_display_video: (data) => {
     return request('/index/Wechatbanner/shopsub_display_video', true, 'post', data)
+  },
+  goodsCategory: (data) => {
+    return request('/index/Wechatbanner/category', true, 'get',data)
+  },
+  goods: (data) => {
+    return request('/index/Wechatbanner/goods_list', true, 'post', data)
+  },
+  clothessubmit:(data) => {
+    return request('/index/Wechatbanner/clothessubmit', true, 'post', data)
+  },
+  login:(data)=> {
+    return request('/index/Wechatbanner/login', true, 'post', data)
+  },
+  orderList:(data)=>{
+    return request('/index/Wechatbanner/orderList', true, 'post', data)
+  },
+  safeimglist:(data)=>{
+    return request('/index/Wechatbanner/safeimglist', true, 'post', data)
   }
 }
