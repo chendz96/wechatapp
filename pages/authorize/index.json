@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "请先登录",
+  "component": true,
+  "usingComponents": {    
+    "i-toast": "../../dist/toast/index"
+  }
+}

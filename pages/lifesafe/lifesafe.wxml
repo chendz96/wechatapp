@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="page__bd">
+    <block wx:for="{{goodsWrap}}" wx:key="id">
+      <view class="goodsWrap-category">
+        <text>{{item.title}}</text>
+      </view>
+      <view>
+        <text>{{item.text}}</text>
+      </view>
+      <block wx:for="{{item.imglist}}" wx:key="{{index}}" wx:for-item="safeimg" wx:key="id">     
+        <view class='goods-item'>
+          <image class='goods-pic' bindtap="previewImage" mode='aspectFill' lazy-load="true" data-src="{{safeimg.src}}" data-list="{{item.imglist}}" src="{{safeimg.src}}">
+          </image>          
+        </view>               
+      </block>
+    </block>
+  </view>
+</view>

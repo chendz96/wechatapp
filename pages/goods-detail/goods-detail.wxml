@@ -1,0 +1,7 @@
+<i-panel title="信息填写">
+  <form bindsubmit="formSubmit" bindreset="formReset">      
+    <i-input value="" name="phone" type="number" title="联系电话" placeholder="请输入手机号" />
+    <i-input value="" name="shoesinfo"type="textarea" title="预约信息" placeholder="请输入预约信息" maxlength="50" />             
+    <button formType="submit" type="primary">提交</button>    
+  </form>
+</i-panel>
