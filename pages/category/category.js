@@ -104,7 +104,7 @@ Page({
   toDetailsTap: function (e) {
     console.log(e)
     wx.requestSubscribeMessage({
-      tmplIds: ['akXDU3p8Bd_g39zDZlMdlOAoZGsKJzLq-mmUP7rDUWI'],
+      tmplIds: [CONFIG.tmpletid],
       success(res) {
         console.log('已授权接收订阅消息')
       }

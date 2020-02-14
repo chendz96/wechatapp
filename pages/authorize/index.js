@@ -1,5 +1,6 @@
 const WXAPI = require('../../api/common')
 var app = getApp();
+const CONFIG = require('../../api/config.js')
 const { $Toast } = require('../../dist/base/index');
 Page({
 
@@ -104,7 +105,7 @@ Page({
     wx.login({
       success: function(res) {
         console.log(res)        
-        WXAPI.login({ code: res.code, details: JSON.stringify(that.data.details)}).then(function(res) {
+        WXAPI.login({ code: res.code, appid: CONFIG.appid, secret: CONFIG.secret, details: JSON.stringify(that.data.details),user: CONFIG.login_key.user, password: CONFIG.login_key.password }).then(function (res) {
           if (res.code == 10000) {
             // 去注册
             that.registerUser();

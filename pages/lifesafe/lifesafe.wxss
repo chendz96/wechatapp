@@ -33,6 +33,7 @@
   height: 80rpx;
   line-height: 80rpx;
   display: flex;
+  font-weight: bold;
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1rpx solid #eee0c0;
